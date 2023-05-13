@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../src/assets/fonts/Roboto-Regular.ttf');
+}
+
+body {
+  background-color: #e5e5e5;
+}
+
+.wrapper {
+  margin: 150px auto;
+  width: 621px;
+  height: 462px;
+  background-color: #ffff;
+  padding: 14px 9px 13px 12px;
+  font-family: 'Roboto';
+}
+
+.content {
+  width: 600px;
+  height: 435px;
+  border: 1px solid #000000;
+}
+
+/* Search */
+.searchField {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #000000;
+}
+
+.searching,
+.searchingButton {
+  outline: none;
+  border: none;
+}
+
+.searching {
+  width: 525px;
+  height: 45px;
+  font-size: 18px;
+  margin-left: 16px;
+  line-height: 21px;
+}
+
+.searchingButton {
+  background-color: #ffff;
+  cursor: pointer;
+  position: relative;
+  top: 7px;
+}
