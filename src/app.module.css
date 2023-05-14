@@ -53,3 +53,69 @@ body {
   position: relative;
   top: 7px;
 }
+
+/* Tabs */
+.data {
+  display: flex;
+  flex-direction: row;
+}
+
+.tabsContent {
+  width: 298px;
+  height: 390px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+
+/* Navigation */
+.navigation {
+  height: 53px;
+  border-top: 1px solid #000000;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.now,
+.details,
+.forecast {
+  width: 99px;
+  height: 45px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.now,
+.details {
+  border-right: 1px solid #000000;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.now:hover,
+.now:active,
+.details:hover,
+.details:active,
+.forecast:hover,
+.forecast:active {
+  background-color: #000000;
+}
+
+a:hover,
+a:active {
+  color: #ffff;
+}
+
+.active {
+  background-color: #000000;
+}
+
+.link {
+  color: #ffff;
+}

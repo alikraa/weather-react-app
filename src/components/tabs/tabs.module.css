@@ -1,0 +1,152 @@
+/* Tabs */
+.tabs {
+  height: 345px;
+  overflow: hidden;
+}
+
+.tabNow,
+.tabDetails,
+.tabForecast {
+  display: none;
+}
+
+.tabNow:target,
+.tabDetails:target,
+.tabForecast:target {
+  display: block;
+}
+
+/* Tab Now */
+.tabNow {
+  height: 310px;
+}
+
+.cloud {
+  margin: 25px 80px;
+  width: 150px;
+  height: 150px;
+}
+
+.temperature {
+  font-size: 70px;
+  margin: auto;
+  margin-left: 20px;
+}
+
+.city {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 12px;
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.heart {
+  padding-right: 10px;
+  cursor: pointer;
+
+  background-color: #ffff;
+  border: none;
+  outline: none;
+}
+
+.like {
+  fill: #fd0000;
+}
+
+/* Tab Details */
+.tabDetails {
+  line-height: 28px;
+  font-size: 24px;
+  margin-left: 17px;
+}
+
+.headCity {
+  height: 68px;
+  display: flex;
+}
+
+.headerCity,
+.headCityForecast {
+  margin-top: 35px;
+}
+
+.information {
+  overflow: auto;
+  height: 310px;
+  width: 280px;
+}
+
+.characteristics {
+  margin: 25px auto;
+  line-height: 20px;
+}
+
+/* Tab Forecast */
+.tabForecast {
+  line-height: 28px;
+  font-size: 24px;
+  margin-left: 17px;
+}
+
+.cards {
+  overflow: auto;
+  width: 275px;
+  height: 260px;
+}
+
+.cardWrapper {
+  width: 255px;
+  height: 120px;
+  border: 1px solid #000000;
+
+  margin-bottom: 9px;
+  font-size: 18px;
+}
+
+.cardPart1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 5px;
+}
+
+.date,
+.time {
+  margin: 5px;
+}
+
+.cardPart2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.weatherData {
+  margin-top: 15px;
+  margin-left: 8px;
+}
+
+.temp {
+  line-height: 3px;
+}
+
+.imgWrap {
+  width: 55px;
+  height: 55px;
+  margin-left: 22px;
+  margin-right: 10px;
+  margin-top: 20px;
+  line-height: 5px;
+}
+
+figure {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.weatherIcon {
+  width: 45px;
+  height: 45px;
+}
