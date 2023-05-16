@@ -22,7 +22,7 @@
 }
 
 .cloud {
-  margin: 25px 80px;
+  margin: 30px 80px;
   width: 150px;
   height: 150px;
 }
@@ -43,16 +43,15 @@
 }
 
 .heart {
-  padding-right: 10px;
   cursor: pointer;
-
   background-color: #ffff;
   border: none;
   outline: none;
 }
 
 .like {
-  fill: #fd0000;
+  width: 37px;
+  height: 37px;
 }
 
 /* Tab Details */
@@ -130,6 +129,7 @@
 
 .temp {
   line-height: 3px;
+  margin-bottom: 30px;
 }
 
 .imgWrap {

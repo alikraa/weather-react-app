@@ -13,10 +13,10 @@ function ForecastCard({ time }: CardForecast) {
         <div className={styles.cardPart2}>
           <div className={styles.weatherData}>
             <p className={`${styles.temp} ${styles.nowTemp}`}>
-              Temperature: 13&#176
+              Temperature: 13°
             </p>
             <p className={`${styles.temp} ${styles.feelingTemp}`}>
-              Feels like: 10&#176
+              Feels like: 10°
             </p>
           </div>
           <div className={styles.imgWrap}>

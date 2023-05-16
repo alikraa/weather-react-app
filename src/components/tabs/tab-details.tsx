@@ -8,10 +8,10 @@ function TabDetails() {
       </div>
       <div className={styles.information}>
         <p className={`${styles.characteristics} ${styles.temper}`}>
-          Temperature: 14&#176
+          Temperature: 14°
         </p>
         <p className={`${styles.characteristics} ${styles.feeling}`}>
-          Feels like: 10&#176
+          Feels like: 10°
         </p>
         <p className={`${styles.characteristics} ${styles.weather}`}>
           Weather: Clouds
