@@ -1,15 +1,27 @@
+import { format } from 'date-fns';
 import { ForecastCard } from './forecast-card.tsx';
+import { VALUES } from '../../ts/consts.ts';
 import styles from './tabs.module.css';
 
-function TabForecast() {
-  const time = ['12:00', '15:00', '18:00', '21:00'];
-  const cards = time.map((item, index) => (
-    <ForecastCard key={index} time={item} />
-  ));
+function TabForecast({ forecastData, cityName }) {
+  const cards = VALUES.FORECAST.map((item) => (forecastData.length > 0 ? (
+    <ForecastCard
+      key={item}
+      date={format(new Date(forecastData[item].dt_txt), 'd LLL')}
+      time={format(new Date(forecastData[item].dt * 1000), 'HH:mm')}
+      temperature={Math.round(forecastData[item].main.temp) + VALUES.DEGREE}
+      feelingTemp={
+          Math.round(forecastData[item].main.feels_like) + VALUES.DEGREE
+        }
+      weatherName={forecastData[item]?.weather[0].main}
+      weatherIcon={`http://openweathermap.org/img/wn/${forecastData[item].weather[0].icon}@4x.png`}
+    />
+  ) : null));
+
   return (
     <div className={styles.tabForecast} id="forecast">
       <div className={styles.headCity}>
-        <p className={styles.headCityForecast}>Actobe</p>
+        <p className={styles.headCityForecast}>{cityName || 'Aktobe'}</p>
       </div>
       <div className={styles.cards}>{cards}</div>
     </div>
