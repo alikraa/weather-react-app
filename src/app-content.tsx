@@ -1,8 +1,10 @@
+import { useSelector } from 'react-redux';
 import { ListLocations } from './components/list-locations/list-locations.tsx';
 import { Tabs } from './components/tabs/tabs.tsx';
 import styles from './app.module.css';
 
 function AppContent() {
+  const citiesList = useSelector((state) => state.cities.citiesList);
   return (
     <div className={styles.data}>
       <div className={styles.tabsContent}>
@@ -21,7 +23,7 @@ function AppContent() {
         </nav>
         <Tabs />
       </div>
-      <ListLocations />
+      <ListLocations citiesList={citiesList} />
     </div>
   );
 }

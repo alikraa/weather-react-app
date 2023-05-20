@@ -1,12 +1,14 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { format } from 'date-fns';
 import { TabDetails } from './tab-details.tsx';
 import { TabForecast } from './tab-forecast.tsx';
 import { TabNow } from './tab-now.tsx';
 import { VALUES } from '../../ts/consts.ts';
 import styles from './tabs.module.css';
+import { addCityToList } from '../../store/cities-slice.ts';
 
 function Tabs() {
+  const dispatch = useDispatch();
   const weatherData = useSelector((state) => state.weatherNowDetails.data);
   const weatherForecast = useSelector((state) => state.weatherForecast.data);
 
@@ -32,12 +34,17 @@ function Tabs() {
 
   const weatherName = weatherData?.weather ? weatherData.weather[0].main : null;
 
+  const addToList = () => {
+    dispatch(addCityToList(weatherData.name));
+  };
+
   return (
     <div className={styles.tabs}>
       <TabNow
         cityName={weatherData?.name}
         cityTemperature={temperature}
         cityIcon={iconLink}
+        addToList={addToList}
       />
       <TabDetails
         cityName={weatherData.name}

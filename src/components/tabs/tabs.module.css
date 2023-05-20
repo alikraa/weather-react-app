@@ -19,12 +19,14 @@
 /* Tab Now */
 .tabNow {
   height: 310px;
+  /* background-color: green; */
 }
 
 .cloud {
   margin: 30px 80px;
   width: 150px;
   height: 150px;
+  /* background-color: red; */
 }
 
 .temperature {

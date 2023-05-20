@@ -2,6 +2,7 @@ interface TabNowProps {
   cityName: string;
   cityTemperature: string | null;
   cityIcon: string | null;
+  addToList: () => void;
 }
 
 interface TabDetailsProps {

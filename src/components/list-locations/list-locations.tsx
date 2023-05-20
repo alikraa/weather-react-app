@@ -1,21 +1,20 @@
-import deleteIcon from '../../assets/img/delete-icon.svg';
+import { Location } from './location.tsx';
 import styles from './list-locations.module.css';
 
-function ListLocations() {
+function ListLocations({ citiesList }) {
+  const cities = citiesList.length > 0 ? (
+    citiesList.map((item) => <Location key={item} cityName={item} />)
+  ) : (
+    <Location cityName="Amur" />
+  );
+
   return (
     <div className={styles.locations}>
       <div className={styles.head}>
         <p className={styles.header}>Added Locations:</p>
       </div>
       <div className={styles.listLocations}>
-        <div className={styles.cities}>
-          <div className={styles.cityNameWrap}>
-            <p className={styles.cityName}>Amur</p>
-            <button className={styles.deleteButton} type="button">
-              <img src={deleteIcon} alt="Delete" />
-            </button>
-          </div>
-        </div>
+        <div className={styles.cities}>{cities}</div>
       </div>
     </div>
   );
