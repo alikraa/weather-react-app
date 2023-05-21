@@ -4,8 +4,9 @@ import { TabDetails } from './tab-details.tsx';
 import { TabForecast } from './tab-forecast.tsx';
 import { TabNow } from './tab-now.tsx';
 import { VALUES } from '../../ts/consts.ts';
-import styles from './tabs.module.css';
 import { addCityToList } from '../../store/cities-slice.ts';
+import { getData, setData } from '../../ts/view.ts';
+import styles from './tabs.module.css';
 
 function Tabs() {
   const dispatch = useDispatch();
@@ -38,6 +39,15 @@ function Tabs() {
     dispatch(addCityToList(weatherData.name));
   };
 
+  const setList = () => {
+    const cities = getData(VALUES.CITIES_LIST) || VALUES.LIST;
+    const checkCity = cities.find((city) => city === weatherData.name);
+    if (!checkCity) {
+      const citiesList = [...cities, weatherData.name];
+      setData(VALUES.CITIES_LIST, citiesList);
+    }
+  };
+
   return (
     <div className={styles.tabs}>
       <TabNow
@@ -45,6 +55,7 @@ function Tabs() {
         cityTemperature={temperature}
         cityIcon={iconLink}
         addToList={addToList}
+        setList={setList}
       />
       <TabDetails
         cityName={weatherData.name}

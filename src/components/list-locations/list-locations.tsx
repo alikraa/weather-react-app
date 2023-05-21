@@ -2,11 +2,9 @@ import { Location } from './location.tsx';
 import styles from './list-locations.module.css';
 
 function ListLocations({ citiesList }) {
-  const cities = citiesList.length > 0 ? (
-    citiesList.map((item) => <Location key={item} cityName={item} />)
-  ) : (
-    <Location cityName="Amur" />
-  );
+  const cities = citiesList.map((item) => (
+    <Location key={item} cityName={item} />
+  ));
 
   return (
     <div className={styles.locations}>

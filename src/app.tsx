@@ -1,15 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { AppContent } from './app-content.tsx';
 import { ModalWindow } from './components/modal-window/modal-window.tsx';
 import { fetchWeatherNowDetails } from './store/tab-now-details.ts';
 import { fetchWeatherForecast } from './store/tab-forecast.ts';
+import { VALUES } from './ts/consts.ts';
+import { addCityToList, addCurrentCity } from './store/cities-slice.ts';
+import { getData } from './ts/view.ts';
 import searchIcon from './assets/img/search-icon.svg';
 import styles from './app.module.css';
 
 function App() {
   const dispatch = useDispatch();
   const [currentCity, setCurrentCity] = useState('');
+
+  useEffect(() => {
+    const cities = getData(VALUES.CITIES_LIST);
+    if (cities) {
+      cities.forEach((city) => dispatch(addCityToList(city)));
+    }
+  }, []);
+
+  useEffect(() => {
+    const currentCityName = getData(VALUES.CURRENT_CITY);
+    if (currentCityName) {
+      dispatch(addCurrentCity(currentCityName));
+      dispatch(fetchWeatherNowDetails(currentCityName));
+      dispatch(fetchWeatherForecast(currentCityName));
+    }
+  }, []);
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentCity(event.target.value);
   };

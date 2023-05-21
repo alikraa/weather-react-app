@@ -1,15 +1,16 @@
 import { useState } from 'react';
+import { TabNowProps } from '../../ts/interfaces.ts';
 import cloudIcon from '../../assets/img/cloud-icon.svg';
 import heartIcon from '../../assets/img/heart-icon.svg';
 import selectHeartIcon from '../../assets/img/heart-select-icon.svg';
 import styles from './tabs.module.css';
-import { TabNowProps } from '../../ts/interfaces.ts';
 
 function TabNow({
   cityName,
   cityTemperature,
   cityIcon,
   addToList,
+  setList,
 }: TabNowProps) {
   const [select, setSelect] = useState(false);
   const icon = select ? selectHeartIcon : heartIcon;
@@ -24,6 +25,7 @@ function TabNow({
           type="button"
           onClick={() => {
             addToList();
+            setList();
             return select ? setSelect(false) : setSelect(true);
           }}
         >

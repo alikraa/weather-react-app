@@ -8,10 +8,14 @@ const citiesSlice = createSlice({
   },
   reducers: {
     addCityToList(state, action) {
-      state.citiesList.push(action.payload);
+      if (!state.citiesList.includes(action.payload)) {
+        state.citiesList.push(action.payload);
+      }
     },
     removeCityFromList(state, action) {
-      state.citiesList = state.citiesList.filter((city) => city !== action.payload);
+      state.citiesList = state.citiesList.filter(
+        (city) => city !== action.payload
+      );
     },
     addCurrentCity(state, action) {
       state.currentCity = action.payload;
@@ -20,4 +24,5 @@ const citiesSlice = createSlice({
 });
 
 export default citiesSlice.reducer;
-export const { addCityToList, removeCityFromList, addCurrentCity } = citiesSlice.actions;
+export const { addCityToList, removeCityFromList, addCurrentCity } =
+  citiesSlice.actions;
