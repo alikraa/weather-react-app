@@ -16,7 +16,17 @@ function TabForecast({ forecastData, cityName }) {
       weatherName={forecastData[item]?.weather[0].main}
       weatherIcon={`http://openweathermap.org/img/wn/${forecastData[item].weather[0].icon}@4x.png`}
     />
-  ) : null));
+  ) : (
+    <ForecastCard
+      key={item}
+      date=""
+      time=""
+      temperature=""
+      feelingTemp=""
+      weatherName=""
+      weatherIcon=""
+    />
+  )));
 
   return (
     <div className={styles.tabForecast} id="forecast">

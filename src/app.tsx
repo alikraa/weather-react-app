@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { AppContent } from './app-content.tsx';
 import { ModalWindow } from './components/modal-window/modal-window.tsx';
-import { fetchWeatherNowDetails } from './store/tab-now-details.ts';
-import { fetchWeatherForecast } from './store/tab-forecast.ts';
+import { fetchWeatherNowDetails } from './store/tab-now-details-slice.ts';
+import { fetchWeatherForecast } from './store/tab-forecast-slice.ts';
 import { VALUES } from './ts/consts.ts';
-import { addCityToList, addCurrentCity } from './store/cities-slice.ts';
+import {
+  addCityToList,
+  addCurrentCity,
+  switchButton,
+} from './store/cities-slice.ts';
 import { getData } from './ts/view.ts';
 import searchIcon from './assets/img/search-icon.svg';
 import styles from './app.module.css';
@@ -13,6 +17,8 @@ import styles from './app.module.css';
 function App() {
   const dispatch = useDispatch();
   const [currentCity, setCurrentCity] = useState('');
+  const [isOpen, setIsOpen] = useState(true);
+  const requestStatus = useSelector((state) => state.weatherNowDetails.status);
 
   useEffect(() => {
     const cities = getData(VALUES.CITIES_LIST);
@@ -23,10 +29,17 @@ function App() {
 
   useEffect(() => {
     const currentCityName = getData(VALUES.CURRENT_CITY);
+    const cities = getData(VALUES.CITIES_LIST);
     if (currentCityName) {
       dispatch(addCurrentCity(currentCityName));
       dispatch(fetchWeatherNowDetails(currentCityName));
       dispatch(fetchWeatherForecast(currentCityName));
+    }
+
+    if (cities.includes(currentCityName)) {
+      dispatch(switchButton(true));
+    } else {
+      dispatch(switchButton(false));
     }
   }, []);
 
@@ -36,9 +49,16 @@ function App() {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (isNaN(currentCity) && currentCity.trim()) {
+    if (
+      isNaN(currentCity)
+      && currentCity.trim()
+      && requestStatus !== 'rejected'
+    ) {
       dispatch(fetchWeatherNowDetails(currentCity));
       dispatch(fetchWeatherForecast(currentCity));
+      dispatch(switchButton(false));
+    } else {
+      setIsOpen(false);
     }
   };
 
@@ -66,7 +86,11 @@ function App() {
           <AppContent />
         </div>
       </div>
-      <ModalWindow />
+      <ModalWindow
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        text={VALUES.CHECK_CITY}
+      />
     </>
   );
 }

@@ -2,9 +2,10 @@ import { useDispatch } from 'react-redux';
 import {
   addCurrentCity,
   removeCityFromList,
+  switchButton,
 } from '../../store/cities-slice.ts';
-import { fetchWeatherNowDetails } from '../../store/tab-now-details.ts';
-import { fetchWeatherForecast } from '../../store/tab-forecast.ts';
+import { fetchWeatherNowDetails } from '../../store/tab-now-details-slice.ts';
+import { fetchWeatherForecast } from '../../store/tab-forecast-slice.ts';
 import { getData, setData } from '../../ts/view.ts';
 import { VALUES } from '../../ts/consts.ts';
 import deleteIcon from '../../assets/img/delete-icon.svg';
@@ -22,6 +23,7 @@ function Location({ cityName }) {
           dispatch(fetchWeatherForecast(cityName));
           dispatch(addCurrentCity(cityName));
           setData(VALUES.CURRENT_CITY, cityName);
+          dispatch(switchButton(true));
         }}
       >
         {cityName || 'Amur'}
@@ -31,6 +33,7 @@ function Location({ cityName }) {
         type="button"
         onClick={() => {
           dispatch(removeCityFromList(cityName));
+          dispatch(switchButton(false));
           const cities = getData(VALUES.CITIES_LIST);
           if (cities) {
             const filteredList = cities.filter((city) => city !== cityName);

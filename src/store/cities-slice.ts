@@ -5,6 +5,7 @@ const citiesSlice = createSlice({
   initialState: {
     currentCity: '',
     citiesList: [],
+    likeButton: false,
   },
   reducers: {
     addCityToList(state, action) {
@@ -20,9 +21,16 @@ const citiesSlice = createSlice({
     addCurrentCity(state, action) {
       state.currentCity = action.payload;
     },
+    switchButton(state, action) {
+      state.likeButton = action.payload;
+    },
   },
 });
 
 export default citiesSlice.reducer;
-export const { addCityToList, removeCityFromList, addCurrentCity } =
-  citiesSlice.actions;
+export const {
+  addCityToList,
+  removeCityFromList,
+  addCurrentCity,
+  switchButton,
+} = citiesSlice.actions;

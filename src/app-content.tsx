@@ -9,17 +9,20 @@ function AppContent() {
     <div className={styles.data}>
       <div className={styles.tabsContent}>
         <nav className={styles.navigation}>
-          <div className={`${styles.now} ${styles.tab} ${styles.active}`}>
+          <button
+            className={`${styles.now} ${styles.tab} ${styles.active}`}
+            type="button"
+          >
             <a href="#now" className={styles.link}>
               Now
             </a>
-          </div>
-          <div className={`${styles.details} ${styles.tab}`}>
+          </button>
+          <button className={`${styles.details} ${styles.tab}`} type="button">
             <a href="#details">Details</a>
-          </div>
-          <div className={`${styles.forecast} ${styles.tab}`}>
+          </button>
+          <button className={`${styles.forecast} ${styles.tab}`} type="button">
             <a href="#forecast">Forecast</a>
-          </div>
+          </button>
         </nav>
         <Tabs />
       </div>
