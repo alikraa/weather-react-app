@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { TabNowProps } from '../../ts/interfaces.ts';
+import { State, TabNowProps } from '../../ts/interfaces.ts';
 import cloudIcon from '../../assets/img/cloud-icon.svg';
 import heartIcon from '../../assets/img/heart-icon.svg';
 import selectHeartIcon from '../../assets/img/heart-select-icon.svg';
@@ -12,7 +12,7 @@ function TabNow({
   addToList,
   setList,
 }: TabNowProps) {
-  const likeButton = useSelector((state) => state.cities.likeButton);
+  const likeButton = useSelector((state: State) => state.cities.likeButton);
   const icon = likeButton ? selectHeartIcon : heartIcon;
 
   return (

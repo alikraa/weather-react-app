@@ -24,4 +24,50 @@ interface CardForecastProps {
   weatherIcon: string;
 }
 
-export type { TabNowProps, TabDetailsProps, CardForecastProps };
+interface TabForecastProps {
+  forecastData: [];
+  cityName: string;
+}
+
+interface LocationProps {
+  cityName: string;
+}
+
+interface ListLocationsProps {
+  citiesList: string[];
+}
+
+interface ModalWindowProps {
+  isOpen: boolean;
+  setIsOpen: (value: boolean) => boolean;
+  text: string;
+}
+
+interface State {
+  cities: {
+    currentCity: string;
+    citiesList: string[];
+    likeButton: boolean;
+  };
+  weatherNowDetails: {
+    data: [];
+    status: string | null;
+    error: string | null;
+  };
+  weatherForecast: {
+    data: [];
+    status: string | null;
+    error: string | null;
+  };
+}
+
+export type {
+  TabNowProps,
+  TabDetailsProps,
+  CardForecastProps,
+  TabForecastProps,
+  LocationProps,
+  ListLocationsProps,
+  ModalWindowProps,
+  State,
+};

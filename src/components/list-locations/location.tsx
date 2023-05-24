@@ -6,12 +6,13 @@ import {
 } from '../../store/cities-slice.ts';
 import { fetchWeatherNowDetails } from '../../store/tab-now-details-slice.ts';
 import { fetchWeatherForecast } from '../../store/tab-forecast-slice.ts';
+import { LocationProps } from '../../ts/interfaces.ts';
 import { getData, setData } from '../../ts/view.ts';
 import { VALUES } from '../../ts/consts.ts';
 import deleteIcon from '../../assets/img/delete-icon.svg';
 import styles from './list-locations.module.css';
 
-function Location({ cityName }) {
+function Location({ cityName }: LocationProps) {
   const dispatch = useDispatch();
 
   return (

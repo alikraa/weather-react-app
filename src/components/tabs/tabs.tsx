@@ -3,20 +3,25 @@ import { format } from 'date-fns';
 import { TabDetails } from './tab-details.tsx';
 import { TabForecast } from './tab-forecast.tsx';
 import { TabNow } from './tab-now.tsx';
-import { VALUES } from '../../ts/consts.ts';
+import { State } from '../../ts/interfaces.ts';
 import {
   addCityToList,
   removeCityFromList,
   switchButton,
 } from '../../store/cities-slice.ts';
+import { VALUES } from '../../ts/consts.ts';
 import { getData, setData } from '../../ts/view.ts';
 import styles from './tabs.module.css';
 
 function Tabs() {
   const dispatch = useDispatch();
-  const weatherData = useSelector((state) => state.weatherNowDetails.data);
-  const weatherForecast = useSelector((state) => state.weatherForecast.data);
-  const citiesList = useSelector((state) => state.cities.citiesList);
+  const weatherData = useSelector(
+    (state: State) => state.weatherNowDetails.data,
+  );
+  const weatherForecast = useSelector(
+    (state: State) => state.weatherForecast.data,
+  );
+  const citiesList = useSelector((state: State) => state.cities.citiesList);
 
   const iconLink = weatherData?.weather
     ? `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`
@@ -52,7 +57,7 @@ function Tabs() {
 
   const setList = () => {
     const cities = getData(VALUES.CITIES_LIST) || VALUES.LIST;
-    const checkCity = cities.find((city) => city === weatherData.name);
+    const checkCity = cities.find((city: string) => city === weatherData.name);
     if (!checkCity) {
       const setCitiesList = [...cities, weatherData.name];
       setData(VALUES.CITIES_LIST, setCitiesList);

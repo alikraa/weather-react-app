@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ListLocations } from './components/list-locations/list-locations.tsx';
 import { Tabs } from './components/tabs/tabs.tsx';
+import { State } from './ts/interfaces.ts';
 import styles from './app.module.css';
 
 function AppContent() {
-  const citiesList = useSelector((state) => state.cities.citiesList);
+  const citiesList = useSelector((state: State) => state.cities.citiesList);
 
   const [now, setNow] = useState(true);
   const [details, setDetails] = useState(false);
@@ -14,7 +15,7 @@ function AppContent() {
   const switchTab = (
     tabNow: boolean,
     tabDetails: boolean,
-    tabForecast: boolean
+    tabForecast: boolean,
   ) => {
     setNow(tabNow);
     setDetails(tabDetails);

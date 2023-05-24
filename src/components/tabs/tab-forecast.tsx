@@ -1,9 +1,10 @@
 import { format } from 'date-fns';
 import { ForecastCard } from './forecast-card.tsx';
+import { TabForecastProps } from '../../ts/interfaces.ts';
 import { VALUES } from '../../ts/consts.ts';
 import styles from './tabs.module.css';
 
-function TabForecast({ forecastData, cityName }) {
+function TabForecast({ forecastData, cityName }: TabForecastProps) {
   const cards = VALUES.FORECAST.map((item) => (forecastData.length > 0 ? (
     <ForecastCard
       key={item}

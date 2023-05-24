@@ -1,9 +1,10 @@
-function setData(key, value) {
+function setData(key: string, value: string | string[]) {
   localStorage.setItem(key, JSON.stringify(value));
 }
 
-function getData(key) {
-  return JSON.parse(localStorage.getItem(key));
+function getData(key: string) {
+  const data = localStorage.getItem(key);
+  return data ? JSON.parse(data) : null;
 }
 
 export { setData, getData };
