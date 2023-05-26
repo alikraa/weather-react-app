@@ -43,6 +43,24 @@ interface ModalWindowProps {
   text: string;
 }
 
+interface CitiesState {
+  currentCity: string;
+  citiesList: string[];
+  likeButton: boolean;
+}
+
+interface WeatherNowDetails {
+  data: object;
+  status: string;
+  error: string | unknown;
+}
+
+interface WeatherForecast {
+  data: object;
+  status: string;
+  error: string | unknown;
+}
+
 export type {
   TabNowProps,
   TabDetailsProps,
@@ -51,4 +69,7 @@ export type {
   LocationProps,
   ListLocationsProps,
   ModalWindowProps,
+  CitiesState,
+  WeatherNowDetails,
+  WeatherForecast,
 };

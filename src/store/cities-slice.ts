@@ -1,10 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface CitiesState {
-  currentCity: string;
-  citiesList: string[];
-  likeButton: boolean;
-}
+import { CitiesState } from '../ts/interfaces.ts';
 
 const initialState: CitiesState = {
   currentCity: '',

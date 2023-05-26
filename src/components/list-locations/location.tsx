@@ -37,7 +37,9 @@ function Location({ cityName }: LocationProps) {
           dispatch(switchButton(false));
           const cities = getData(VALUES.CITIES_LIST);
           if (cities) {
-            const filteredList = cities.filter((city) => city !== cityName);
+            const filteredList = cities.filter(
+              (city: string) => city !== cityName,
+            );
             setData(VALUES.CITIES_LIST, filteredList);
           }
         }}

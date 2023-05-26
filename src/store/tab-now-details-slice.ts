@@ -1,11 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { SERVER } from '../ts/consts.ts';
-
-interface WeatherNowDetails {
-  data: object;
-  status: string;
-  error: string | unknown;
-}
+import { WeatherNowDetails } from '../ts/interfaces.ts';
 
 const fetchWeatherNowDetails = createAsyncThunk<
   WeatherNowDetails,

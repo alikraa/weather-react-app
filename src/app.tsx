@@ -19,7 +19,7 @@ function App() {
   const [currentCity, setCurrentCity] = useState('');
   const [isOpen, setIsOpen] = useState(true);
   const requestStatus = useAppSelector(
-    (state) => state.weatherNowDetails.status
+    (state) => state.weatherNowDetails.status,
   );
 
   useEffect(() => {
