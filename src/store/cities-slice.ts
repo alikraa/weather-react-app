@@ -1,27 +1,35 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+interface CitiesState {
+  currentCity: string;
+  citiesList: string[];
+  likeButton: boolean;
+}
+
+const initialState: CitiesState = {
+  currentCity: '',
+  citiesList: [],
+  likeButton: false,
+};
 
 const citiesSlice = createSlice({
   name: 'cities',
-  initialState: {
-    currentCity: '',
-    citiesList: [],
-    likeButton: false,
-  },
+  initialState,
   reducers: {
-    addCityToList(state, action) {
+    addCityToList(state, action: PayloadAction<string>) {
       if (!state.citiesList.includes(action.payload)) {
         state.citiesList.push(action.payload);
       }
     },
-    removeCityFromList(state, action) {
+    removeCityFromList(state, action: PayloadAction<string>) {
       state.citiesList = state.citiesList.filter(
-        (city) => city !== action.payload
+        (city) => city !== action.payload,
       );
     },
-    addCurrentCity(state, action) {
+    addCurrentCity(state, action: PayloadAction<string>) {
       state.currentCity = action.payload;
     },
-    switchButton(state, action) {
+    switchButton(state, action: PayloadAction<boolean>) {
       state.likeButton = action.payload;
     },
   },

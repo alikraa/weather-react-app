@@ -1,9 +1,8 @@
-import { useSelector, useDispatch } from 'react-redux';
 import { format } from 'date-fns';
+import { useAppDispatch, useAppSelector } from '../../store/hooks.ts';
 import { TabDetails } from './tab-details.tsx';
 import { TabForecast } from './tab-forecast.tsx';
 import { TabNow } from './tab-now.tsx';
-import { State } from '../../ts/interfaces.ts';
 import {
   addCityToList,
   removeCityFromList,
@@ -14,14 +13,10 @@ import { getData, setData } from '../../ts/view.ts';
 import styles from './tabs.module.css';
 
 function Tabs() {
-  const dispatch = useDispatch();
-  const weatherData = useSelector(
-    (state: State) => state.weatherNowDetails.data,
-  );
-  const weatherForecast = useSelector(
-    (state: State) => state.weatherForecast.data,
-  );
-  const citiesList = useSelector((state: State) => state.cities.citiesList);
+  const dispatch = useAppDispatch();
+  const weatherData = useAppSelector((state) => state.weatherNowDetails.data);
+  const weatherForecast = useAppSelector((state) => state.weatherForecast.data);
+  const citiesList = useAppSelector((state) => state.cities.citiesList);
 
   const iconLink = weatherData?.weather
     ? `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`

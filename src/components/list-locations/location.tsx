@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../store/hooks.ts';
 import {
   addCurrentCity,
   removeCityFromList,
@@ -13,7 +13,7 @@ import deleteIcon from '../../assets/img/delete-icon.svg';
 import styles from './list-locations.module.css';
 
 function Location({ cityName }: LocationProps) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <div className={styles.cityNameWrap}>

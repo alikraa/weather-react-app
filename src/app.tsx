@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from './store/hooks.ts';
 import { AppContent } from './app-content.tsx';
 import { ModalWindow } from './components/modal-window/modal-window.tsx';
 import { fetchWeatherNowDetails } from './store/tab-now-details-slice.ts';
@@ -9,18 +9,17 @@ import {
   addCurrentCity,
   switchButton,
 } from './store/cities-slice.ts';
-import { State } from './ts/interfaces.ts';
 import { getData } from './ts/view.ts';
 import { VALUES } from './ts/consts.ts';
 import searchIcon from './assets/img/search-icon.svg';
 import styles from './app.module.css';
 
 function App() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [currentCity, setCurrentCity] = useState('');
   const [isOpen, setIsOpen] = useState(true);
-  const requestStatus = useSelector(
-    (state: State) => state.weatherNowDetails.status
+  const requestStatus = useAppSelector(
+    (state) => state.weatherNowDetails.status
   );
 
   useEffect(() => {
@@ -28,7 +27,7 @@ function App() {
     if (cities) {
       cities.forEach((city: string) => dispatch(addCityToList(city)));
     }
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     const currentCityName = getData(VALUES.CURRENT_CITY);
@@ -44,7 +43,7 @@ function App() {
     } else {
       dispatch(switchButton(false));
     }
-  }, []);
+  }, [dispatch]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentCity(event.target.value);

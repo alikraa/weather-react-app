@@ -1,6 +1,12 @@
 import { ModalWindowProps } from '../../ts/interfaces.ts';
 import styles from './modal-window.module.css';
 
+// interface ModalWindowProps {
+//   isOpen: boolean;
+//   setIsOpen: (arg0: boolean) => void;
+//   text: string;
+// }
+
 function ModalWindow({ isOpen, setIsOpen, text }: ModalWindowProps) {
   return (
     <div className={styles.wrapper} hidden={isOpen}>

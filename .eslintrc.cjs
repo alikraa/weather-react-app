@@ -22,5 +22,12 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'no-console': 'warn',
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: ['state'],
+      },
+    ],
   },
 };

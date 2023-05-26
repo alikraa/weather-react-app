@@ -39,26 +39,8 @@ interface ListLocationsProps {
 
 interface ModalWindowProps {
   isOpen: boolean;
-  setIsOpen: (value: boolean) => boolean;
+  setIsOpen: (arg0: boolean) => void;
   text: string;
-}
-
-interface State {
-  cities: {
-    currentCity: string;
-    citiesList: string[];
-    likeButton: boolean;
-  };
-  weatherNowDetails: {
-    data: [];
-    status: string | null;
-    error: string | null;
-  };
-  weatherForecast: {
-    data: [];
-    status: string | null;
-    error: string | null;
-  };
 }
 
 export type {
@@ -69,5 +51,4 @@ export type {
   LocationProps,
   ListLocationsProps,
   ModalWindowProps,
-  State,
 };

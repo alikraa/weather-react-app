@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from './store/hooks.ts';
 import { ListLocations } from './components/list-locations/list-locations.tsx';
 import { Tabs } from './components/tabs/tabs.tsx';
-import { State } from './ts/interfaces.ts';
 import styles from './app.module.css';
 
 function AppContent() {
-  const citiesList = useSelector((state: State) => state.cities.citiesList);
+  const citiesList = useAppSelector((state) => state.cities.citiesList);
 
   const [now, setNow] = useState(true);
   const [details, setDetails] = useState(false);
