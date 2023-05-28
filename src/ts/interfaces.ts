@@ -1,3 +1,55 @@
+interface CitiesState {
+  currentCity: string;
+  citiesList: string[];
+  likeButton: boolean;
+}
+
+interface DataNowDetails {
+  weather: [
+    {
+      main: string;
+      icon: string;
+    }
+  ];
+  main: {
+    temp: number;
+    feels_like: number;
+  };
+  dt: number;
+  sys: {
+    sunrise: number;
+    sunset: number;
+  };
+  name: string;
+}
+
+interface WeatherNowDetails {
+  data: DataNowDetails;
+  status: string;
+  error: string | unknown;
+}
+
+interface DataForecast {
+  dt: number;
+  main: {
+    temp: number;
+    feels_like: number;
+  };
+  weather: [
+    {
+      main: string;
+      icon: string;
+    }
+  ];
+  dt_txt: string;
+}
+
+interface WeatherForecast {
+  data: DataForecast[] | [];
+  status: string;
+  error: string | unknown;
+}
+
 interface TabNowProps {
   cityName: string;
   cityTemperature: string | null;
@@ -25,7 +77,7 @@ interface CardForecastProps {
 }
 
 interface TabForecastProps {
-  forecastData: [];
+  forecastData: DataForecast[] | [];
   cityName: string;
 }
 
@@ -41,24 +93,6 @@ interface ModalWindowProps {
   isOpen: boolean;
   setIsOpen: (arg0: boolean) => void;
   text: string;
-}
-
-interface CitiesState {
-  currentCity: string;
-  citiesList: string[];
-  likeButton: boolean;
-}
-
-interface WeatherNowDetails {
-  data: object;
-  status: string;
-  error: string | unknown;
-}
-
-interface WeatherForecast {
-  data: object;
-  status: string;
-  error: string | unknown;
 }
 
 export type {

@@ -17,6 +17,8 @@ function Location({ cityName }: LocationProps) {
 
   return (
     <div className={styles.cityNameWrap}>
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,
+      jsx-a11y/no-noninteractive-element-interactions */}
       <p
         className={styles.cityName}
         onClick={() => {
@@ -35,6 +37,7 @@ function Location({ cityName }: LocationProps) {
         onClick={() => {
           dispatch(removeCityFromList(cityName));
           dispatch(switchButton(false));
+
           const cities = getData(VALUES.CITIES_LIST);
           if (cities) {
             const filteredList = cities.filter(
