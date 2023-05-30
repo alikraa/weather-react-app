@@ -45,7 +45,7 @@ interface DataForecast {
 }
 
 interface WeatherForecast {
-  data: DataForecast[] | [];
+  data: DataForecast[];
   status: string;
   error: string | unknown;
 }
@@ -105,5 +105,7 @@ export type {
   ModalWindowProps,
   CitiesState,
   WeatherNowDetails,
+  DataNowDetails,
   WeatherForecast,
+  DataForecast,
 };

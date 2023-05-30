@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { SERVER } from '../ts/consts.ts';
-import { WeatherNowDetails } from '../ts/interfaces.ts';
+import { DataNowDetails, WeatherNowDetails } from '../ts/interfaces.ts';
 
 const fetchWeatherNowDetails = createAsyncThunk<
-  WeatherNowDetails,
+  DataNowDetails,
   string,
   { rejectValue: string | unknown }
 >(
@@ -17,14 +17,33 @@ const fetchWeatherNowDetails = createAsyncThunk<
       }
       const weatherData = await response.json();
       return weatherData;
-    } catch (error) {
-      return rejectWithValue(error.message);
+    } catch (error: unknown) {
+      return rejectWithValue(error);
     }
   },
 );
 
+const initDataNowDetails: DataNowDetails = {
+  weather: [
+    {
+      main: '',
+      icon: '04d',
+    },
+  ],
+  main: {
+    temp: 14,
+    feels_like: 10,
+  },
+  dt: 0,
+  sys: {
+    sunrise: 0,
+    sunset: 0,
+  },
+  name: '',
+};
+
 const initialState: WeatherNowDetails = {
-  data: [],
+  data: initDataNowDetails,
   status: '',
   error: null,
 };

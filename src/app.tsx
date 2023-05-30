@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
     const currentCityName = getData(VALUES.CURRENT_CITY);
-    const cities = getData(VALUES.CITIES_LIST);
+    const cities = getData(VALUES.CITIES_LIST) || VALUES.LIST;
     if (currentCityName) {
       dispatch(addCurrentCity(currentCityName));
       dispatch(fetchWeatherNowDetails(currentCityName));
@@ -51,11 +51,7 @@ function App() {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (
-      isNaN(currentCity) &&
-      currentCity.trim() &&
-      requestStatus !== 'rejected'
-    ) {
+    if (currentCity.trim() && requestStatus !== 'rejected') {
       dispatch(fetchWeatherNowDetails(currentCity));
       dispatch(fetchWeatherForecast(currentCity));
       dispatch(switchButton(false));

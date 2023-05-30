@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { SERVER } from '../ts/consts.ts';
-import { WeatherForecast } from '../ts/interfaces.ts';
+import { DataForecast, WeatherForecast } from '../ts/interfaces.ts';
 
 const fetchWeatherForecast = createAsyncThunk<
-  WeatherForecast,
+  DataForecast[],
   string,
   { rejectValue: string | unknown }
 >('weatherForecast/fetchForecast', async (cityName, { rejectWithValue }) => {
@@ -17,7 +17,7 @@ const fetchWeatherForecast = createAsyncThunk<
     const forecastList = await weatherData.list.slice(0, 4);
     return forecastList;
   } catch (error: unknown) {
-    return rejectWithValue(error.message);
+    return rejectWithValue(error);
   }
 });
 
