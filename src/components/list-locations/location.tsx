@@ -7,12 +7,12 @@ import {
 import { fetchWeatherNowDetails } from '../../store/tab-now-details-slice.ts';
 import { fetchWeatherForecast } from '../../store/tab-forecast-slice.ts';
 import { LocationProps } from '../../ts/interfaces.ts';
-import { getData, setData } from '../../ts/view.ts';
+import { setData, updateList } from '../../ts/view.ts';
 import { VALUES } from '../../ts/consts.ts';
 import deleteIcon from '../../assets/img/delete-icon.svg';
 import styles from './list-locations.module.css';
 
-function Location({ cityName }: LocationProps) {
+function Location({ cityName, currentCityName }: LocationProps) {
   const dispatch = useAppDispatch();
 
   return (
@@ -36,15 +36,11 @@ function Location({ cityName }: LocationProps) {
         type="button"
         onClick={() => {
           dispatch(removeCityFromList(cityName));
-          dispatch(switchButton(false));
+          updateList(VALUES.CITIES_LIST, cityName);
 
-          const cities = getData(VALUES.CITIES_LIST);
-          if (cities) {
-            const filteredList = cities.filter(
-              (city: string) => city !== cityName,
-            );
-            setData(VALUES.CITIES_LIST, filteredList);
-          }
+          return currentCityName === cityName
+            ? dispatch(switchButton(false))
+            : dispatch(switchButton(true));
         }}
       >
         <img src={deleteIcon} alt="Delete" />

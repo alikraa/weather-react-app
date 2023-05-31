@@ -7,4 +7,12 @@ function getData(key: string) {
   return data ? JSON.parse(data) : null;
 }
 
-export { setData, getData };
+function updateList(key: string, element: string) {
+  const cities = getData(key);
+  if (cities) {
+    const filteredList = cities.filter((item: string) => item !== element);
+    setData(key, filteredList);
+  }
+}
+
+export { setData, getData, updateList };

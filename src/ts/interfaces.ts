@@ -83,6 +83,7 @@ interface TabForecastProps {
 
 interface LocationProps {
   cityName: string;
+  currentCityName: string;
 }
 
 interface ListLocationsProps {
