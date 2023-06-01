@@ -14,8 +14,8 @@ const VALUES = {
 };
 
 const SERVER = {
-  SERVER_URL: 'http://api.openweathermap.org/data/2.5/weather',
-  FORECAST: 'http://api.openweathermap.org/data/2.5/forecast',
+  SERVER_URL: 'https://api.openweathermap.org/data/2.5/weather',
+  FORECAST: 'https://api.openweathermap.org/data/2.5/forecast',
   API_KEY: '3a93792a7ff7223513e2ff98278e394d',
 };
 
