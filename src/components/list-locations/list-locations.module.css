@@ -1,6 +1,6 @@
 .locations {
   width: 302px;
-  height: 385px;
+  height: 390px;
   border-left: 1px solid #000000;
 }
 
@@ -8,6 +8,8 @@
   height: 68px;
   border-bottom: 1px solid #000000;
   display: flex;
+
+  background-color: #fff;
 }
 
 .header {
@@ -50,4 +52,70 @@
   border: none;
   cursor: pointer;
   padding-right: 15px;
+}
+
+@media (max-width: 960px) {
+  .locations {
+    width: 252px;
+    height: 339px;
+  }
+
+  .head {
+    height: 58px;
+  }
+
+  .header,
+  .cityName {
+    font-size: 21px;
+  }
+
+  .header {
+    margin-top: 30px;
+  }
+
+  .cities {
+    width: 249px;
+    height: 200px;
+    padding: 15px 0px 30px 10px;
+  }
+
+  .cityName {
+    margin: 3px;
+    margin-bottom: 7px;
+  }
+}
+
+@media (max-width: 375px) {
+  .locations {
+    width: 172px;
+    height: 255px;
+  }
+
+  .head {
+    height: 42px;
+    width: 170px;
+  }
+
+  .header,
+  .cityName {
+    font-size: 17px;
+  }
+
+  .header {
+    margin: 12px;
+  }
+
+  .cities {
+    width: 172px;
+    height: 212px;
+    padding: 12px 5px 25px 8px;
+  }
+
+  .cityName {
+    margin: 1px;
+  }
+
+  .deleteButton {
+    padding-right: 5px;
+  }
 }

@@ -22,7 +22,7 @@ body {
 
 .content {
   width: 600px;
-  height: 435px;
+  height: 440px;
   border: 1px solid #000000;
 }
 
@@ -62,7 +62,7 @@ body {
 
 .tabsContent {
   width: 298px;
-  height: 390px;
+  height: 389px;
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
@@ -70,11 +70,11 @@ body {
 
 /* Navigation */
 .navigation {
-  height: 53px;
   border-top: 1px solid #000000;
-
   display: flex;
   flex-direction: row;
+
+  background-color: yellowgreen;
 }
 
 button {
@@ -102,7 +102,6 @@ button {
 a {
   text-decoration: none;
   color: #000000;
-  font-size: 32px;
 }
 
 .now:hover,
@@ -125,4 +124,75 @@ a:active {
 
 .link {
   color: #ffff;
+}
+
+@media (max-width: 960px) {
+  .wrapper {
+    width: 521px;
+    height: 412px;
+  }
+
+  .content {
+    width: 500px;
+    height: 390px;
+  }
+
+  .searching {
+    width: 425px;
+    font-size: 15px;
+  }
+
+  .searchingButton {
+    top: 5px;
+  }
+
+  .tabsContent {
+    width: 248px;
+    height: 339px;
+  }
+
+  .now,
+  .details,
+  .forecast {
+    width: 90px;
+    height: 35px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 375px) {
+  .wrapper {
+    width: 365px;
+    height: 330px;
+  }
+
+  .content {
+    width: 345px;
+    height: 305px;
+  }
+
+  .searching {
+    width: 275px;
+  }
+
+  .searchingButton {
+    top: 7px;
+  }
+
+  .tabsContent {
+    width: 172px;
+    height: 254px;
+  }
+
+  .navigation {
+    width: 173px;
+  }
+
+  .now,
+  .details,
+  .forecast {
+    width: 70px;
+    height: 35px;
+    font-size: 13px;
+  }
 }

@@ -140,3 +140,176 @@ figure {
   width: 45px;
   height: 45px;
 }
+
+@media (max-width: 960px) {
+  .tabs {
+    width: 248px;
+    height: 363px;
+  }
+
+  /* Tab Now */
+  .tabNow {
+    height: 290px;
+  }
+
+  .cloud {
+    margin: 27px 75px;
+    width: 105px;
+    height: 105px;
+  }
+
+  .temperature {
+    font-size: 60px;
+  }
+
+  .like {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* Tab Details */
+  .tabDetails {
+    height: 280px;
+    margin-left: 15px;
+  }
+
+  .headerCity,
+  .headCityForecast {
+    margin-top: 30px;
+  }
+
+  .information {
+    height: 240px;
+    width: 248px;
+  }
+
+  .characteristics {
+    margin: 18px auto;
+    font-size: 22px;
+  }
+
+  /* Tab Forecast */
+  .cards {
+    width: 248px;
+    height: 235px;
+  }
+
+  .cardWrapper {
+    width: 215px;
+    height: 110px;
+    font-size: 17px;
+  }
+
+  .cardPart2 {
+    margin-top: 7px;
+  }
+
+  .temp {
+    margin-bottom: 25px;
+  }
+
+  .imgWrap {
+    margin: 15px 0px;
+  }
+}
+
+@media (max-width: 375px) {
+  .tabs {
+    width: 172px;
+  }
+
+  /* Tab Now */
+  .tabNow {
+    height: 220px;
+    padding: 8px 0;
+  }
+
+  .cloud {
+    margin: 5px 40px;
+    width: 90px;
+    height: 90px;
+  }
+
+  .temperature {
+    font-size: 50px;
+    margin-left: 10px;
+  }
+
+  .city {
+    font-size: 17px;
+  }
+
+  .like {
+    width: 30px;
+    height: 30px;
+    margin-left: 18px;
+  }
+
+  /* Tab Details */
+  .tabDetails {
+    margin-left: 10px;
+  }
+
+  .headerCity,
+  .headCityForecast {
+    margin-top: 20px;
+    font-size: 21px;
+  }
+
+  .headCity {
+    height: 55px;
+  }
+
+  .information {
+    height: 150px;
+  }
+
+  .characteristics {
+    margin: 7px auto;
+    font-size: 18px;
+  }
+
+  /* Tab Forecast */
+  .tabForecast {
+    margin-left: 10px;
+  }
+
+  .cards {
+    width: 172px;
+    height: 160px;
+  }
+
+  .cardWrapper {
+    width: 154px;
+    height: 110px;
+    font-size: 15px;
+  }
+
+  .cardPart1 {
+    height: 32px;
+  }
+
+  .cardPart2 {
+    margin-top: 0px;
+  }
+
+  .temp {
+    margin-bottom: 0px;
+    height: 35px;
+    line-height: 17px;
+    font-size: 14px;
+  }
+
+  .imgWrap {
+    margin-top: 22px;
+    margin-right: 12px;
+    font-size: 14px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .weatherIcon {
+    width: 38px;
+    height: 38px;
+  }
+}
