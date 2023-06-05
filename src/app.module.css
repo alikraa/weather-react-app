@@ -128,6 +128,7 @@ a:active {
 
 @media (max-width: 960px) {
   .wrapper {
+    margin: 100px auto;
     width: 521px;
     height: 412px;
   }
@@ -160,19 +161,20 @@ a:active {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 440px) {
   .wrapper {
-    width: 365px;
+    margin: 50px auto;
+    width: 355px;
     height: 330px;
   }
 
   .content {
-    width: 345px;
+    width: 335px;
     height: 305px;
   }
 
   .searching {
-    width: 275px;
+    width: 255px;
   }
 
   .searchingButton {
@@ -180,18 +182,18 @@ a:active {
   }
 
   .tabsContent {
-    width: 172px;
+    width: 162px;
     height: 254px;
   }
 
   .navigation {
-    width: 173px;
+    width: 163px;
   }
 
   .now,
   .details,
   .forecast {
-    width: 70px;
+    width: 60px;
     height: 35px;
     font-size: 13px;
   }

@@ -85,9 +85,9 @@
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 440px) {
   .locations {
-    width: 172px;
+    width: 162px;
     height: 255px;
   }
 
@@ -106,7 +106,7 @@
   }
 
   .cities {
-    width: 172px;
+    width: 170px;
     height: 212px;
     padding: 12px 5px 25px 8px;
   }

@@ -213,9 +213,9 @@ figure {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 440px) {
   .tabs {
-    width: 172px;
+    width: 162px;
   }
 
   /* Tab Now */
@@ -226,13 +226,13 @@ figure {
 
   .cloud {
     margin: 5px 40px;
-    width: 90px;
-    height: 90px;
+    width: 88px;
+    height: 88px;
   }
 
   .temperature {
     font-size: 50px;
-    margin-left: 10px;
+    margin-left: 8px;
   }
 
   .city {
@@ -240,9 +240,10 @@ figure {
   }
 
   .like {
-    width: 30px;
-    height: 30px;
-    margin-left: 18px;
+    width: 25px;
+    height: 25px;
+    margin-left: 15px;
+    margin-top: 3px;
   }
 
   /* Tab Details */
@@ -275,14 +276,14 @@ figure {
   }
 
   .cards {
-    width: 172px;
+    width: 162px;
     height: 160px;
   }
 
   .cardWrapper {
-    width: 154px;
+    width: 144px;
     height: 110px;
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .cardPart1 {
@@ -297,19 +298,19 @@ figure {
     margin-bottom: 0px;
     height: 35px;
     line-height: 17px;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .imgWrap {
     margin-top: 22px;
     margin-right: 12px;
-    font-size: 14px;
-    width: 38px;
-    height: 38px;
+    font-size: 13px;
+    width: 35px;
+    height: 35px;
   }
 
   .weatherIcon {
-    width: 38px;
-    height: 38px;
+    width: 35px;
+    height: 35px;
   }
 }
