@@ -56,6 +56,11 @@ function Tabs() {
     if (!checkCity) {
       const setCitiesList = [...cities, weatherData.name];
       setData(VALUES.CITIES_LIST, setCitiesList);
+    } else {
+      const filteredCitiesList = cities.filter(
+        (city: string) => city !== weatherData.name,
+      );
+      setData(VALUES.CITIES_LIST, filteredCitiesList);
     }
   };
 
